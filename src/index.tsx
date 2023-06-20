@@ -3,13 +3,22 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
+import { SerieDetailProvider } from './contexts/serie-detail.context';
+import { ModalProvider } from './contexts/modal.context';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <SerieDetailProvider>
+        <ModalProvider>
+          <App />
+        </ModalProvider>
+      </SerieDetailProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
